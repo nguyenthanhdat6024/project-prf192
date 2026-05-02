@@ -1,0 +1,46 @@
+# Project: Project1
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o FileHelper.o Appointment.o AppointmentManager.o PatientManager.o consoleIO.o Patient.o
+LINKOBJ  = main.o FileHelper.o Appointment.o AppointmentManager.o PatientManager.o consoleIO.o Patient.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -pg
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = Project.exe
+CXXFLAGS = $(CXXINCS) -pg
+CFLAGS   = $(INCS) -pg
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+FileHelper.o: FileHelper.c
+	$(CC) -c FileHelper.c -o FileHelper.o $(CFLAGS)
+
+Appointment.o: Appointment.c
+	$(CC) -c Appointment.c -o Appointment.o $(CFLAGS)
+
+AppointmentManager.o: AppointmentManager.c
+	$(CC) -c AppointmentManager.c -o AppointmentManager.o $(CFLAGS)
+
+PatientManager.o: PatientManager.c
+	$(CC) -c PatientManager.c -o PatientManager.o $(CFLAGS)
+
+consoleIO.o: consoleIO.c
+	$(CC) -c consoleIO.c -o consoleIO.o $(CFLAGS)
+
+Patient.o: Patient.c
+	$(CC) -c Patient.c -o Patient.o $(CFLAGS)
