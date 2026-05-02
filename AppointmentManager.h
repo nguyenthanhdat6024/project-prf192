@@ -21,12 +21,12 @@ int am_start(AppointmentManager* am);
 
 // Schedule new appointment
 // return -1 -> file data full
-// return 1 -> schedule appointment successfull
+// return 1 -> schedule appointment successfully
 // return 0 -> schedule error
 int am_scheduleNewAppointment(AppointmentManager* am, Appointment ap, patientManager* pm, const char* name);
 
 // calculate patient's fee
-// return total fee of the paient
+// return total fee of the patient
 double am_calculateFee(AppointmentManager* am, int idBuffer);
 
 // print appointment matching Doctor's name buffer
